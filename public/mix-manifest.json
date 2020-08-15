@@ -1,4 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/vendor/helium/css/helium.css": "/vendor/helium/css/helium.css",
+    "/vendor/helium/js/helium.js": "/vendor/helium/js/helium.js"
 }
