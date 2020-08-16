@@ -15,4 +15,4 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 
 mix.js('../helium/resources/js/helium.js', 'public/vendor/helium/js/helium.js');
-mix.sass('../helium/resources/sass/helium.scss', 'vendor/helium/css/helium.css');
+mix.sass('../helium/resources/sass/helium.scss', 'public/vendor/helium/css/helium.css');
