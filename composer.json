@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "bubba169/helium": "dev-master",
+        "dinhquochan/laravel-twig": "^1.2",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
