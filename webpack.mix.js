@@ -16,3 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js('../helium/resources/js/helium.js', 'public/vendor/helium/js/helium.js');
 mix.sass('../helium/resources/sass/helium.scss', 'public/vendor/helium/css/helium.css');
+
+mix.copyDirectory('../helium/node_modules/tinymce/skins', 'public/vendor/helium/js/skins');

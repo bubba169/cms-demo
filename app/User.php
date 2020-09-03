@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Helium\Entities\Page\Page;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -36,4 +37,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Page relationship
+     *
+     * @return void
+     */
+    public function pages()
+    {
+        return $this->belongsToMany(Page::class);
+    }
 }
