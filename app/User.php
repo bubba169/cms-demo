@@ -3,11 +3,10 @@
 namespace App;
 
 use Helium\Entities\Page\Page;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Helium\Entities\User\User as HeliumUser;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends HeliumUser
 {
     use Notifiable;
 
