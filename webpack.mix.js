@@ -12,9 +12,12 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .postCss('resources/css/app.css', 'public/css', [
+        require('tailwindcss')
+    ]);
 
-mix.js('../helium/resources/js/helium.js', 'public/vendor/helium/js/helium.js');
-mix.sass('../helium/resources/sass/helium.scss', 'public/vendor/helium/css/helium.css');
-
-mix.copyDirectory('../helium/node_modules/tinymce/skins', 'public/vendor/helium/js/skins');
+// Build helium CSS
+mix.js('vendor/bubba169/helium/resources/js/helium.js', 'public/vendor/helium/js');
+mix.postCss('..//helium/resources/css/helium.css', 'public/vendor/helium/css/', [
+        require('tailwindcss')
+    ]);

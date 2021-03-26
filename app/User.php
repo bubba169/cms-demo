@@ -2,11 +2,10 @@
 
 namespace App;
 
-use Helium\Entities\Page\Page;
-use Helium\Entities\User\User as HeliumUser;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Notifications\Notifiable;
 
-class User extends HeliumUser
+class User extends AuthUser
 {
     use Notifiable;
 
@@ -36,14 +35,4 @@ class User extends HeliumUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * Page relationship
-     *
-     * @return void
-     */
-    public function pages()
-    {
-        return $this->belongsToMany(Page::class);
-    }
 }
