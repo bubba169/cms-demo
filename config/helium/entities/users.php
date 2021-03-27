@@ -3,12 +3,13 @@
 use App\User;
 
 return [
+    'name' => 'Boah',
     'model' => User::class,
     'table' => [
         'columns' => [
             'id',
             'name' => [
-                'label' => 'Name'
+                'label' => 'Name Me Boy\'o'
             ],
         ]
     ],
