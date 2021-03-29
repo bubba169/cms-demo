@@ -5,6 +5,10 @@ return [
         [
             'label' => 'Dashboard',
             'url' => '/admin'
+        ],
+        [
+            'label' => 'Users',
+            'url' => '/admin/entities/users'
         ]
     ]
 ];

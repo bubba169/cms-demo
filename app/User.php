@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as AuthUser;
+use App\Image;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as AuthUser;
 
 class User extends AuthUser
 {
@@ -35,4 +36,9 @@ class User extends AuthUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }
