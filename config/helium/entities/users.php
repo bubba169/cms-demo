@@ -17,7 +17,7 @@ return [
             ],
         ],
         'actions' => [
-            'edit' => []
+            'edit'
         ]
     ],
     'form' => [

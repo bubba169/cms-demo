@@ -8,7 +8,8 @@ return [
         ],
         [
             'label' => 'Users',
-            'url' => '/admin/entities/users'
+            'url' => '/admin/entities/users',
+            'iconClass' => 'fas fa-users'
         ]
     ]
 ];
