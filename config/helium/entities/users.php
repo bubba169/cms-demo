@@ -6,7 +6,6 @@ return [
     'name' => 'Boah',
     'model' => User::class,
     'table' => [
-        'title' => 'Managing Boahs',
         'columns' => [
             'id',
             'name' => [

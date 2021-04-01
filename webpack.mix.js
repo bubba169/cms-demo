@@ -17,7 +17,8 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 
 // Build helium CSS
-mix.js('vendor/bubba169/helium/resources/js/helium.js', 'public/vendor/helium/js');
-mix.postCss('..//helium/resources/css/helium.css', 'public/vendor/helium/css/', [
-        require('tailwindcss')
+mix.js('vendor/bubba169/helium/resources/js/helium.js', 'public/vendor/helium/js')
+    .postCss('..//helium/resources/css/helium.css', 'public/vendor/helium/css/', [
+        require('postcss-import'),
+        require('tailwindcss')('vendor/bubba169/helium/tailwind.config.js')
     ]);
