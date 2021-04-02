@@ -12,7 +12,8 @@ return [
                 'label' => 'Name Me Boy\'o',
             ],
             'image' => [
-                'value' => '{entity.image.filename}'
+                'value' => '{{ entry.image.filename }}',
+                'view' => 'helium::table-cell.inline'
             ],
         ],
         'actions' => [
@@ -20,6 +21,7 @@ return [
         ]
     ],
     'form' => [
+        'title' => 'HELLLLOOOOOO',
         'fields' => [
             'name',
             'email',

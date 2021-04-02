@@ -551,13 +551,6 @@ video {
   height: auto;
 }
 
-h1 {
-  font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  margin-bottom: 1rem;
-}
-
 .container {
   width: 100%;
 }
@@ -590,6 +583,12 @@ h1 {
   .container {
     max-width: 1536px;
   }
+}
+
+.h1 {
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
