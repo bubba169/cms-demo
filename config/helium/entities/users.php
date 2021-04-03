@@ -26,5 +26,8 @@ return [
             'name',
             'email',
         ],
+        'actions' => [
+            'save'
+        ]
     ]
 ];
