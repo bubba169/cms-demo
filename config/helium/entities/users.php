@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use Helium\Form\TestOptionsHandler;
 
 return [
     'name' => 'Boah',
@@ -12,8 +13,7 @@ return [
                 'label' => 'Name Me Boy\'o',
             ],
             'image' => [
-                'value' => '{{ entry.image.filename }}',
-                'view' => 'helium::table-cell.inline'
+                'value' => '{entry.image.filename}',
             ],
         ],
         'actions' => [
@@ -25,6 +25,24 @@ return [
         'fields' => [
             'name',
             'email',
+            'date_to_remember' => [
+                'type' => 'datetime'
+            ],
+            'image' => [
+                'column' => 'image_id',
+                'type' => 'belongsTo',
+                'related_name' => 'filename',
+                'placeholder' => 'Please Select...',
+            ],
+            'bio' => [
+                'type' => 'radio',
+                'placeholder' => 'Please Select...',
+                'required' => true,
+                'options' => TestOptionsHandler::class
+            ],
+            'enabled' => [
+                'type' => 'checkbox'
+            ]
         ],
         'actions' => [
             'save'
