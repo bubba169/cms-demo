@@ -41,4 +41,9 @@ class User extends AuthUser
     {
         return $this->belongsTo(Image::class);
     }
+
+    public function images()
+    {
+        return $this->belongsToMany(Image::class);
+    }
 }

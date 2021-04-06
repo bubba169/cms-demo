@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Image;
 use Helium\Form\TestOptionsHandler;
 
 return [
@@ -21,7 +22,7 @@ return [
         ]
     ],
     'form' => [
-        'title' => 'HELLLLOOOOOO',
+        'title' => 'Users',
         'fields' => [
             'name',
             'email',
@@ -31,14 +32,21 @@ return [
             'image' => [
                 'column' => 'image_id',
                 'type' => 'belongsTo',
+                'related_model' => Image::class,
                 'related_name' => 'filename',
                 'placeholder' => 'Please Select...',
             ],
+            'images' => [
+                'type' => 'belongsToMany',
+                'related_model' => Image::class,
+                'related_name' => 'filename',
+            ],
             'bio' => [
-                'type' => 'radio',
-                'placeholder' => 'Please Select...',
-                'required' => true,
+                'type' => 'multicheck',
                 'options' => TestOptionsHandler::class
+            ],
+            'password' => [
+                'type' => 'password'
             ],
             'enabled' => [
                 'type' => 'checkbox'
