@@ -23,34 +23,33 @@ return [
     ],
     'form' => [
         'title' => 'Users',
+        'tabs' => [
+            'second' => 'Images'
+        ],
         'fields' => [
             'name',
-            'email',
-            'date_to_remember' => [
-                'type' => 'datetime'
-            ],
+            'email' => 'email',
+            'date_to_remember' => 'datetime',
             'image' => [
                 'column' => 'image_id',
                 'type' => 'belongsTo',
                 'related_model' => Image::class,
                 'related_name' => 'filename',
                 'placeholder' => 'Please Select...',
+                'tab' => 'second',
             ],
             'images' => [
                 'type' => 'belongsToMany',
                 'related_model' => Image::class,
                 'related_name' => 'filename',
+                'tab' => 'second',
             ],
             'bio' => [
                 'type' => 'multicheck',
                 'options' => TestOptionsHandler::class
             ],
-            'password' => [
-                'type' => 'password'
-            ],
-            'enabled' => [
-                'type' => 'checkbox'
-            ]
+            'password' => 'password',
+            'enabled' => 'checkbox',
         ],
         'actions' => [
             'save'
