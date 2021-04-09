@@ -21,38 +21,54 @@ return [
             'edit'
         ]
     ],
-    'form' => [
-        'title' => 'Users',
-        'tabs' => [
-            'second' => 'Images'
+    'fields' => [
+        'name',
+        'email' => 'email',
+        'date_to_remember' => 'datetime',
+        'image' => [
+            'column' => 'image_id',
+            'type' => 'belongsTo',
+            'related_model' => Image::class,
+            'related_name' => 'filename',
+            'placeholder' => 'Please Select...',
         ],
-        'fields' => [
-            'name',
-            'email' => 'email',
-            'date_to_remember' => 'datetime',
-            'image' => [
-                'column' => 'image_id',
-                'type' => 'belongsTo',
-                'related_model' => Image::class,
-                'related_name' => 'filename',
-                'placeholder' => 'Please Select...',
-                'tab' => 'second',
-            ],
-            'images' => [
-                'type' => 'belongsToMany',
-                'related_model' => Image::class,
-                'related_name' => 'filename',
-                'tab' => 'second',
-            ],
-            'bio' => [
-                'type' => 'multicheck',
-                'options' => TestOptionsHandler::class
-            ],
-            'password' => 'password',
-            'enabled' => 'checkbox',
+        'images' => [
+            'type' => 'belongsToMany',
+            'related_model' => Image::class,
+            'related_name' => 'filename',
         ],
-        'actions' => [
-            'save'
-        ]
+        'bio' => [
+            'type' => 'multicheck',
+            'options' => TestOptionsHandler::class
+        ],
+        'password' => 'password',
+        'enabled' => 'checkbox',
+    ],
+    'forms' => [
+        '*' => [
+            'title' => 'Users',
+            'tabs' => [
+                'main' => 'Content',
+                'images' => 'Images'
+            ],
+            'fields' => [
+                'main' => [
+                    'name',
+                    'email',
+                    'date_to_remember',
+                    'bio',
+                    'password',
+                    'enabled'
+                ],
+                'images' => [
+                    'image',
+                    'images',
+                ],
+            ],
+            'actions' => [
+                'save'
+            ]
+        ],
+        'edit',
     ]
 ];

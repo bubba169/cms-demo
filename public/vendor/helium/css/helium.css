@@ -575,6 +575,10 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(30, 58, 138, var(--tw-text-opacity));
 }
+.helium-tab:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}
 .helium-tab.active {
 	--tw-bg-opacity: 1;
 	background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
@@ -643,6 +647,9 @@ video {
 }
 .min-w-\[150px\] {
 	min-width: 150px;
+}
+.max-w-\[200px\] {
+	max-width: 200px;
 }
 .flex-1 {
 	flex: 1 1 0%;
@@ -738,9 +745,9 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
-.bg-gray-700 {
+.bg-blue-900 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
+	background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
 }
 .bg-gray-900 {
 	--tw-bg-opacity: 1;
@@ -836,9 +843,9 @@ video {
 	--tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.hover\:bg-gray-900:hover {
+.hover\:bg-blue-800:hover {
 	--tw-bg-opacity: 1;
-	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+	background-color: rgba(30, 64, 175, var(--tw-bg-opacity));
 }
 .hover\:bg-gray-800:hover {
 	--tw-bg-opacity: 1;
