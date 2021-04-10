@@ -22,7 +22,9 @@ return [
         ]
     ],
     'fields' => [
-        'name',
+        'name' => [
+            'rules' => 'required'
+        ],
         'email' => 'email',
         'date_to_remember' => 'datetime',
         'image' => [
@@ -46,19 +48,20 @@ return [
     ],
     'forms' => [
         '*' => [
-            'title' => 'Users',
             'tabs' => [
                 'main' => 'Content',
                 'images' => 'Images'
             ],
             'fields' => [
                 'main' => [
-                    'name',
+                    'name' => [
+                        'label' => 'Bob\'s Name'
+                    ],
                     'email',
                     'date_to_remember',
                     'bio',
+                    'enabled',
                     'password',
-                    'enabled'
                 ],
                 'images' => [
                     'image',
@@ -67,6 +70,18 @@ return [
             ],
             'actions' => [
                 'save'
+            ]
+        ],
+        'add' => [
+            'fields' => [
+                'main' => [
+                    'email',
+                    'password',
+                    'enabled' => [
+                        'type' => 'hidden',
+                        'value' => false
+                    ]
+                ]
             ]
         ],
         'edit',
