@@ -17,5 +17,7 @@
         "resolve-url-loader": "^3.1.2",
         "tailwindcss": "^2.1"
     },
-    "dependencies": {}
+    "dependencies": {
+        "postcss-nesting": "^7.0.1"
+    }
 }

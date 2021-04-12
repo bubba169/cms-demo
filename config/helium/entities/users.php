@@ -23,28 +23,46 @@ return [
     ],
     'fields' => [
         'name' => [
-            'rules' => 'required'
+            'type' => 'textarea',
+            'description' => 'This is a field description. It is incredibly useful.',
+            'rules' => 'required',
         ],
-        'email' => 'email',
-        'date_to_remember' => 'datetime',
+        'email' => [
+            'type' => 'email',
+        ],
+        'date_to_remember' => [
+            'description' => 'This is a field description. It is incredibly useful.',
+            'type' => 'datetime',
+            'rules' => 'required|date|after:2021-05-05'
+        ],
         'image' => [
             'column' => 'image_id',
             'type' => 'belongsTo',
             'related_model' => Image::class,
             'related_name' => 'filename',
-            'placeholder' => 'Please Select...',
+            'placeholder' => 'Please select',
+            'description' => 'This is a field description. It is incredibly useful.',
         ],
         'images' => [
             'type' => 'belongsToMany',
             'related_model' => Image::class,
             'related_name' => 'filename',
+            'rules' => 'required'
         ],
         'bio' => [
             'type' => 'multicheck',
-            'options' => TestOptionsHandler::class
+            'options' => TestOptionsHandler::class,
+            'description' => 'This is a field description. It is incredibly useful.',
         ],
-        'password' => 'password',
-        'enabled' => 'checkbox',
+        'password' => [
+            'type' => 'password',
+            'description' => 'Leave this field blank to keep the previous password unchanged'
+        ],
+        'enabled' => [
+            'type' => 'checkbox',
+            'description' => 'Enable this for ultimate awesomeness',
+            'rules' => 'accepted'
+        ],
     ],
     'forms' => [
         '*' => [
