@@ -17,12 +17,31 @@ return [
             'edit'
         ],
     ],
-    'form' => [
-        'fields' => [
-            'filename'
+    'fields' => [
+        'filename',
+        'created_at' => 'datetime',
+    ],
+    'forms' => [
+        '*' => [
+            'tabs' => [
+                'main' => 'Hello',
+                'second' => 'Second',
+            ],
+            'fields' => [
+                'main' => [
+                    'filename'
+                ],
+                'second' => [
+                    'created_at' => [
+                        'label' => 'Date of Origin'
+                    ]
+                ]
+            ],
+            'actions' => [
+                'save'
+            ]
         ],
-        'actions' => [
-            'save'
-        ]
+        'add',
+        'edit',
     ]
 ];
