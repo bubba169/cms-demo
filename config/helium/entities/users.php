@@ -8,6 +8,16 @@ return [
     'name' => 'Boah',
     'model' => User::class,
     'table' => [
+        'filters' => [
+            'name',
+            'image' => [
+                'column' => 'image_id',
+                'type' => 'belongsTo',
+                'related_model' => Image::class,
+                'related_name' => 'filename',
+                'placeholder' => 'Select to filter',
+            ]
+        ],
         'columns' => [
             'id',
             'name' => [

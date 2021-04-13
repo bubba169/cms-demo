@@ -13,13 +13,18 @@ return [
                 'label' => 'Created'
             ],
         ],
+        'filters' => [
+            'filename'
+        ],
         'actions' => [
             'edit'
         ],
     ],
     'fields' => [
         'filename',
-        'created_at' => 'datetime',
+        'created_at' => [
+            'label' => 'Bob\'s favourite date'
+        ],
     ],
     'forms' => [
         '*' => [
@@ -32,9 +37,7 @@ return [
                     'filename'
                 ],
                 'second' => [
-                    'created_at' => [
-                        'label' => 'Date of Origin'
-                    ]
+                    'created_at' => 'datetime'
                 ]
             ],
             'actions' => [
