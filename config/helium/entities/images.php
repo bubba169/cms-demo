@@ -22,6 +22,12 @@ return [
     ],
     'fields' => [
         'filename',
+        'parent' => [
+            'type' => 'belongsTo',
+            'related_model' => App\Image::class,
+            'related_name' => 'filename',
+            'placeholder' => 'None'
+        ],
         'created_at' => [
             'label' => 'Bob\'s favourite date'
         ],
@@ -34,7 +40,8 @@ return [
             ],
             'fields' => [
                 'main' => [
-                    'filename'
+                    'filename',
+                    'parent',
                 ],
                 'second' => [
                     'created_at' => 'datetime'

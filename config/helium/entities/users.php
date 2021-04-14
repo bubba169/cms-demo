@@ -9,17 +9,18 @@ return [
     'model' => User::class,
     'table' => [
         'filters' => [
-            'name',
-            'image' => [
-                'column' => 'image_id',
-                'type' => 'belongsTo',
-                'related_model' => Image::class,
-                'related_name' => 'filename',
-                'placeholder' => 'Select to filter',
+            'search' => [
+                'type' => 'search',
+                'column' => [
+                    'name',
+                    'email',
+                    'images.id'
+                ]
             ]
         ],
         'columns' => [
             'id',
+            'email',
             'name' => [
                 'label' => 'Name Me Boy\'o',
             ],
@@ -71,7 +72,6 @@ return [
         'enabled' => [
             'type' => 'checkbox',
             'description' => 'Enable this for ultimate awesomeness',
-            'rules' => 'accepted'
         ],
     ],
     'forms' => [
