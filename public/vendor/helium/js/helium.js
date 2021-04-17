@@ -9,12 +9,15 @@
 
 var init = function init() {
   var tabs = document.querySelectorAll('.helium-tab');
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function (event) {
-      setActiveTab(tab);
+
+  if (tabs.length) {
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function (event) {
+        setActiveTab(tab);
+      });
     });
-  });
-  setActiveTab(document.getElementById('helium-tab-main'));
+    setActiveTab(document.getElementById('helium-tab-main'));
+  }
 };
 
 function setActiveTab(tab) {
@@ -30,6 +33,37 @@ function setActiveTab(tab) {
   });
   tab.classList.add('active');
 }
+
+init();
+
+/***/ }),
+
+/***/ "../helium/resources/js/toggle.js":
+/*!****************************************!*\
+  !*** ../helium/resources/js/toggle.js ***!
+  \****************************************/
+/***/ (() => {
+
+var init = function init() {
+  var btns = document.getElementsByClassName('helium-toggle');
+  Array.prototype.forEach.call(btns, function (btn) {
+    var target = document.querySelector(btn.getAttribute('data-target'));
+
+    if (!target.classList.contains('collapsed')) {
+      target.style.maxHeight = target.scrollHeight + 'px';
+    }
+
+    btn.addEventListener('click', function (event) {
+      if (!target.classList.contains('collapsed')) {
+        target.style.maxHeight = '0px';
+        target.classList.add('collapsed');
+      } else {
+        target.style.maxHeight = target.scrollHeight + 'px';
+        target.classList.remove('collapsed');
+      }
+    });
+  });
+};
 
 init();
 
@@ -69,6 +103,8 @@ var __webpack_exports__ = {};
   !*** ../helium/resources/js/helium.js ***!
   \****************************************/
 __webpack_require__(/*! ./tabs */ "../helium/resources/js/tabs.js");
+
+__webpack_require__(/*! ./toggle */ "../helium/resources/js/toggle.js");
 })();
 
 /******/ })()

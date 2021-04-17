@@ -3,20 +3,32 @@
 use App\User;
 use App\Image;
 use Helium\Form\TestOptionsHandler;
+use Helium\Table\DefaultSearchHandler;
 
 return [
     'name' => 'Boah',
     'model' => User::class,
     'table' => [
-        'filters' => [
-            'search' => [
-                'type' => 'search',
-                'column' => [
-                    'name',
-                    'email',
-                    'images.id'
-                ]
+        'search' => [
+            'columns' => [
+                'name',
+                'email',
+                'image.filename'
             ]
+        ],
+        'filters' => [
+            'enabled' => [
+                'type' => 'boolean',
+            ],
+            'image' => [
+                'type' => 'belongsTo',
+                'related_model' => Image::class,
+                'related_name' => 'filename',
+                'column' => 'image_id'
+            ],
+            'email',
+            'name',
+            'bio'
         ],
         'columns' => [
             'id',

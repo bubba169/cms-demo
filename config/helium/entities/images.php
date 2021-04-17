@@ -3,18 +3,18 @@
 return [
     'model' => App\Image::class,
     'table' => [
+        'search' => [
+            'columns' => [
+                'filename',
+                'parent.filename',
+            ],
+        ],
         'columns' => [
             'id',
             'filename',
-            'updated_at' => [
-                'label' => 'Updated'
+            'parent' => [
+                'value' => '{entry.parent.filename}'
             ],
-            'created_at' => [
-                'label' => 'Created'
-            ],
-        ],
-        'filters' => [
-            'filename'
         ],
         'actions' => [
             'edit'
