@@ -48,15 +48,28 @@ return [
         'name' => [
             'type' => 'textarea',
             'description' => 'This is a field description. It is incredibly useful.',
-            'rules' => 'required',
+            'required' => true,
         ],
         'email' => [
             'type' => 'email',
+            'description' => 'This is a field description. It is incredibly useful.',
+            'required' => true
         ],
         'date_to_remember' => [
             'description' => 'This is a field description. It is incredibly useful.',
             'type' => 'datetime',
-            'rules' => 'required|date|after:2021-05-05'
+            'rules' => 'required|date|after:2021-05-05',
+            'attributes' => [
+                'All' => 'yes',
+                'date' => [
+                    'IsDate' => 'Yes',
+                    'IsTime' => 'No'
+                ],
+                'time' => [
+                    'IsDate' => 'No',
+                    'IsTime' => 'Yes'
+                ]
+            ]
         ],
         'image' => [
             'column' => 'image_id',
@@ -73,17 +86,22 @@ return [
             'rules' => 'required'
         ],
         'bio' => [
-            'type' => 'multicheck',
+            'type' => 'radio',
             'options' => TestOptionsHandler::class,
             'description' => 'This is a field description. It is incredibly useful.',
         ],
         'password' => [
             'type' => 'password',
-            'description' => 'Leave this field blank to keep the previous password unchanged'
+            'description' => 'Leave this field blank to keep the previous password unchanged',
+            'attributes' => [
+                'franke' => 'bob',
+                'autocomplete' => 'bob',
+            ]
         ],
         'enabled' => [
             'type' => 'checkbox',
             'description' => 'Enable this for ultimate awesomeness',
+            'required' => true
         ],
     ],
     'forms' => [
