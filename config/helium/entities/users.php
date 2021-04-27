@@ -2,13 +2,22 @@
 
 use App\User;
 use App\Image;
-use Helium\Form\TestOptionsHandler;
-use Helium\Table\DefaultSearchHandler;
+use Helium\Config\Form\Field\RadioField;
+use Helium\Config\Form\Field\TextAreaField;
+use Helium\Config\Form\Field\BelongsToField;
+use Helium\Config\Table\Filter\BooleanFilter;
+use Helium\Handler\Options\TestOptionsHandler;
+use Helium\Config\Form\Field\BelongsToManyField;
+use Helium\Config\Form\Field\CheckboxField;
+use Helium\Config\Form\Field\DateTimeField;
+use Helium\Config\Form\Field\MulticheckField;
+use Helium\Config\Form\Field\PasswordField;
 
 return [
     'name' => 'Boah',
     'model' => User::class,
     'table' => [
+        //'view' => 'helium::debug',
         'search' => [
             'columns' => [
                 'name',
@@ -18,27 +27,19 @@ return [
         ],
         'filters' => [
             'enabled' => [
-                'type' => 'boolean',
+                'field' => BooleanFilter::class,
             ],
             'image' => [
                 'type' => 'belongsTo',
-                'related_model' => Image::class,
-                'related_name' => 'filename',
-                'column' => 'image_id'
+                'relatedModel' => Image::class,
+                'relatedName' => '{entry.filename}',
             ],
-            'email',
-            'name',
-            'bio'
         ],
         'columns' => [
             'id',
             'email',
-            'name' => [
-                'label' => 'Name Me Boy\'o',
-            ],
-            'image' => [
-                'value' => '{entry.image.filename}',
-            ],
+            'name',
+            'image' => '{entry.image.filename}',
         ],
         'actions' => [
             'edit'
@@ -46,7 +47,7 @@ return [
     ],
     'fields' => [
         'name' => [
-            'type' => 'textarea',
+            'field' => TextAreaField::class,
             'description' => 'This is a field description. It is incredibly useful.',
             'required' => true,
         ],
@@ -56,50 +57,39 @@ return [
             'required' => true
         ],
         'date_to_remember' => [
+            'field' => DateTimeField::class,
             'description' => 'This is a field description. It is incredibly useful.',
-            'type' => 'datetime',
+            'required' => true,
             'rules' => 'required|date|after:2021-05-05',
-            'attributes' => [
-                'All' => 'yes',
-                'date' => [
-                    'IsDate' => 'Yes',
-                    'IsTime' => 'No'
-                ],
-                'time' => [
-                    'IsDate' => 'No',
-                    'IsTime' => 'Yes'
-                ]
-            ]
+            'messages' => [
+                'required' => 'The date is required for sure.',
+                'after' => 'Min date fool',
+            ],
         ],
         'image' => [
-            'column' => 'image_id',
-            'type' => 'belongsTo',
-            'related_model' => Image::class,
-            'related_name' => 'filename',
+            'field' => BelongsToField::class,
+            'relatedModel' => Image::class,
+            'relatedName' => '{entry.filename}',
             'placeholder' => 'Please select',
             'description' => 'This is a field description. It is incredibly useful.',
         ],
         'images' => [
-            'type' => 'belongsToMany',
-            'related_model' => Image::class,
-            'related_name' => 'filename',
+            'field' => BelongsToManyField::class,
+            'relatedModel' => Image::class,
+            'relatedName' => '{entry.filename}',
             'rules' => 'required'
         ],
         'bio' => [
-            'type' => 'radio',
+            'field' => MulticheckField::class,
             'options' => TestOptionsHandler::class,
             'description' => 'This is a field description. It is incredibly useful.',
         ],
         'password' => [
-            'type' => 'password',
+            'field' => PasswordField::class,
             'description' => 'Leave this field blank to keep the previous password unchanged',
-            'attributes' => [
-                'franke' => 'bob',
-                'autocomplete' => 'bob',
-            ]
         ],
         'enabled' => [
-            'type' => 'checkbox',
+            'field' => CheckboxField::class,
             'description' => 'Enable this for ultimate awesomeness',
             'required' => true
         ],
@@ -112,9 +102,7 @@ return [
             ],
             'fields' => [
                 'main' => [
-                    'name' => [
-                        'label' => 'Bob\'s Name'
-                    ],
+                    'name',
                     'email',
                     'date_to_remember',
                     'bio',
