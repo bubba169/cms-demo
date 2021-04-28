@@ -43,7 +43,10 @@ return [
         ],
         'actions' => [
             'edit'
-        ]
+        ],
+        'buttons' => [
+            'new'
+        ],
     ],
     'fields' => [
         'name' => [
@@ -118,7 +121,7 @@ return [
                 'save'
             ]
         ],
-        'add' => [
+        'new' => [
             'fields' => [
                 'main' => [
                     'email',

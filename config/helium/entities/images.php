@@ -1,5 +1,8 @@
 <?php
 
+use Helium\Config\Form\Field\BelongsToField;
+use Helium\Config\Form\Field\DateTimeField;
+
 return [
     'model' => App\Image::class,
     'table' => [
@@ -19,17 +22,21 @@ return [
         'actions' => [
             'edit'
         ],
+        'buttons' => [
+            'add',
+        ],
     ],
     'fields' => [
         'filename',
         'parent' => [
-            'type' => 'belongsTo',
-            'related_model' => App\Image::class,
-            'related_name' => 'filename',
+            'field' => BelongsToField::class,
+            'relatedModel' => App\Image::class,
+            'relatedName' => '{entry.filename}',
             'placeholder' => 'None'
         ],
         'created_at' => [
-            'label' => 'Bob\'s favourite date'
+            'label' => 'Bob\'s favourite date',
+            'type' => 'date',
         ],
     ],
     'forms' => [
@@ -44,7 +51,7 @@ return [
                     'parent',
                 ],
                 'second' => [
-                    'created_at' => 'datetime'
+                    'created_at' => DateTimeField::class,
                 ]
             ],
             'actions' => [
@@ -52,6 +59,10 @@ return [
             ]
         ],
         'add',
-        'edit',
+        'edit' => [
+            'buttons' => [
+                'view'
+            ]
+        ],
     ]
 ];
